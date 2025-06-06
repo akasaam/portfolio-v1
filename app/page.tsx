@@ -596,7 +596,7 @@ export default function Home() {
         <div className="flex-1 order-1 lg:order-2 flex justify-center lg:justify-end">
           <div className="hero-image bg-black rounded-2xl md:rounded-3xl overflow-hidden relative aspect-square w-full max-w-sm md:max-w-md lg:max-w-lg hover:scale-105 transition-transform duration-500">
             <Image
-              src="https://i.pinimg.com/originals/6f/3a/f9/6f3af991d76e3d027b264ea7660ca532.gif"
+              src="https://i.pinimg.com/originals/75/ae/36/75ae36e317b6b207fe440d004667f34f.gif"
               alt="Developer with laptop"
               width={500}
               height={500}
