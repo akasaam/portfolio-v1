@@ -553,32 +553,42 @@ export default function Home() {
             <br />
             director
           </h1>
+          <div className="mt-4 md:mt-6 flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm font-outfit">
+              Full-Stack Developer
+            </span>
+            <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm font-outfit">Entrepreneur</span>
+            <span className="px-3 py-1 bg-gray-100 text-black rounded-full text-sm font-outfit">Brand Strategist</span>
+          </div>
           <p className="mt-4 md:mt-6 max-w-md text-gray-600 font-outfit text-sm md:text-base">
-            Welcome to a digital journey that transcends code and design. Discover the artistry of development, captured
-            in motion.
+            Welcome to a digital journey that transcends code and design. I create bridges where others see divides,
+            transforming businesses through technology with a human touch.
           </p>
           <div className="mt-6 md:mt-8 flex gap-2">
             <span className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-300 flex items-center justify-center font-outfit text-sm md:text-base hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              W
+              🚀
             </span>
             <span className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-300 flex items-center justify-center font-outfit text-sm md:text-base hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              E
+              💻
             </span>
             <span className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-300 flex items-center justify-center font-outfit text-sm md:text-base hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
-              B
+              🎨
+            </span>
+            <span className="h-8 w-8 md:h-10 md:w-10 rounded-full border border-gray-300 flex items-center justify-center font-outfit text-sm md:text-base hover:bg-black hover:text-white transition-all duration-300 cursor-pointer">
+              📈
             </span>
           </div>
           <div className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             <div className="hover:scale-105 transition-transform duration-300 cursor-pointer">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold">+250k</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold">30+</div>
               <p className="text-xs md:text-sm text-gray-500 font-outfit">
-                Lines of code creating a wide audience and game-changing innovations
+                Brands elevated through innovative digital solutions
               </p>
             </div>
             <div className="hover:scale-105 transition-transform duration-300 cursor-pointer">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold">+800k</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold">5+ yrs</div>
               <p className="text-xs md:text-sm text-gray-500 font-outfit">
-                Hours invested, engaging storytelling that captivates viewers
+                Of experience creating transformative digital experiences
               </p>
             </div>
           </div>
@@ -586,7 +596,7 @@ export default function Home() {
         <div className="flex-1 order-1 lg:order-2 flex justify-center lg:justify-end">
           <div className="hero-image bg-black rounded-2xl md:rounded-3xl overflow-hidden relative aspect-square w-full max-w-sm md:max-w-md lg:max-w-lg hover:scale-105 transition-transform duration-500">
             <Image
-              src="https://i.pinimg.com/originals/75/ae/36/75ae36e317b6b207fe440d004667f34f.gif"
+              src="https://i.pinimg.com/originals/6f/3a/f9/6f3af991d76e3d027b264ea7660ca532.gif"
               alt="Developer with laptop"
               width={500}
               height={500}
@@ -641,14 +651,16 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Raju Halder</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">The Technical Visionary</h3>
             <p className="text-gray-400 mb-4 md:mb-6 font-outfit text-sm md:text-base">
-              With over 5 years of experience in web development, I specialize in creating immersive digital experiences
-              that blend technical excellence with creative vision.
+              I'm not just building websites; I'm architecting digital experiences that transform businesses and lives.
+              With a unique background in sociology and technology, I bring a human-centered approach to every project.
             </p>
             <p className="text-gray-400 mb-6 md:mb-8 font-outfit text-sm md:text-base">
-              My approach combines clean code with innovative design thinking, resulting in websites and applications
-              that not only function flawlessly but also engage and inspire users.
+              As the founder of The Brand Counter, I lead a team of 10+ specialists who have elevated 30+ brands over 5
+              years of consistent innovation. My sociology background isn't just an academic footnote—it's my secret
+              weapon that allows me to create digital experiences that don't just function—they connect, engage, and
+              inspire.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               <div className="hover:bg-gray-900 p-3 rounded-lg transition-all duration-300 cursor-pointer">
@@ -667,7 +679,7 @@ export default function Home() {
               </div>
               <div className="hover:bg-gray-900 p-3 rounded-lg transition-all duration-300 cursor-pointer">
                 <h4 className="text-base md:text-lg font-bold mb-2">Other</h4>
-                <p className="text-gray-400 font-outfit text-sm md:text-base"> Kotlin, C++, Git</p>
+                <p className="text-gray-400 font-outfit text-sm md:text-base">Kotlin, C++, Git</p>
               </div>
             </div>
           </div>
@@ -732,8 +744,8 @@ export default function Home() {
           </h2>
 
           <p className="max-w-xl mx-auto text-sm md:text-lg text-gray-400 text-center font-outfit mb-6 md:mb-8 px-4">
-            Get the best advice from our experts, including expert developers, designers, and digital strategists,
-            totally free.
+            Let's create digital experiences that don't just function—they connect, engage, and inspire. Reach out to
+            start our collaboration.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-12 w-full max-w-md">
@@ -759,7 +771,7 @@ export default function Home() {
               <div className="h-5 w-5 md:h-6 md:w-6 bg-white hover:scale-110 transition-transform duration-300"></div>
             </div>
             <div className="font-outfit text-xs md:text-sm text-gray-400 text-center md:text-right">
-              <p>RAJU HALDER • Web Developer</p>
+              <p>RAJU HALDER • Web Developer & Entrepreneur</p>
               <p>+91 7501411769 • akarajuhalder@gmail.com</p>
             </div>
           </div>
