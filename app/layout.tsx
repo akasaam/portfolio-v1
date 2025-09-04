@@ -1,16 +1,20 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
+import { Inter, Outfit } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import LoadingScreen from "@/components/loading-screen"
 
 const inter = Inter({ subsets: ["latin"] })
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+})
 
-export const metadata: Metadata = {
-  title: "Raju Halder - Full-Stack Developer & Entrepreneur",
-  description:
-    "Portfolio of Raju Halder - Full-Stack Web Developer, Entrepreneur, and Digital Brand Strategist. Creating digital experiences that transform businesses.",
+export const metadata = {
+  title: "RAJU HALDER - Web Developer Portfolio",
+  description: "Creative Web Developer specializing in modern web applications and digital experiences",
     generator: 'v0.app'
 }
 
@@ -20,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <LoadingScreen />
-        <Header />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} ${outfit.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <LoadingScreen />
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

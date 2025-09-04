@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -58,11 +57,6 @@ export default function Header() {
     { name: "Portfolio", href: "/portfolio" },
     { name: "Contact", href: "/contact" },
   ]
-
-  // Hide on admin routes
-  if (pathname?.startsWith("/admin")) {
-    return null
-  }
 
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-6 relative">

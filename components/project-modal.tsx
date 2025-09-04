@@ -13,9 +13,6 @@ interface Project {
   liveUrl: string
   githubUrl: string
   category: string
-  featured?: boolean
-  createdAt?: string
-  updatedAt?: string
 }
 
 interface ProjectModalProps {

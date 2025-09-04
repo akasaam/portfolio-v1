@@ -1,114 +1,134 @@
 "use client"
-import { useEffect, useRef } from "react"
+import { useId } from "react"
+import { useEffect, useState } from "react"
+import Particles, { initParticlesEngine } from "@tsparticles/react"
+import type { Container } from "@tsparticles/engine"
+import { loadSlim } from "@tsparticles/slim"
 import { cn } from "@/lib/utils"
+import { gsap } from "gsap"
 
-interface SparklesCoreProps {
+type ParticlesProps = {
   id?: string
   className?: string
   background?: string
+  particleSize?: number
   minSize?: number
   maxSize?: number
-  particleDensity?: number
-  particleColor?: string
   speed?: number
+  particleColor?: string
+  particleDensity?: number
 }
 
-export const SparklesCore = ({
-  id = "tsparticles",
-  className,
-  background = "transparent",
-  minSize = 0.6,
-  maxSize = 1.4,
-  particleDensity = 100,
-  particleColor = "#FFFFFF",
-  speed = 1,
-}: SparklesCoreProps) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+export const SparklesCore = (props: ParticlesProps) => {
+  const { id, className, background, minSize, maxSize, speed, particleColor, particleDensity } = props
+  const [init, setInit] = useState(false)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine)
+    }).then(() => {
+      setInit(true)
+    })
+  }, [])
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
+  const particlesLoaded = async (container?: Container) => {
+    if (container) {
+      gsap.fromTo(container.canvas.element, { opacity: 0 }, { opacity: 1, duration: 1, ease: "power2.out" })
     }
+  }
 
-    resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
-
-    const particles: Array<{
-      x: number
-      y: number
-      size: number
-      speedX: number
-      speedY: number
-      opacity: number
-      fadeDirection: number
-    }> = []
-
-    // Create particles
-    for (let i = 0; i < particleDensity; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * (maxSize - minSize) + minSize,
-        speedX: (Math.random() - 0.5) * speed,
-        speedY: (Math.random() - 0.5) * speed,
-        opacity: Math.random(),
-        fadeDirection: Math.random() > 0.5 ? 1 : -1,
-      })
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((particle) => {
-        // Update position
-        particle.x += particle.speedX
-        particle.y += particle.speedY
-
-        // Update opacity
-        particle.opacity += particle.fadeDirection * 0.01
-        if (particle.opacity <= 0 || particle.opacity >= 1) {
-          particle.fadeDirection *= -1
-        }
-
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width
-        if (particle.x > canvas.width) particle.x = 0
-        if (particle.y < 0) particle.y = canvas.height
-        if (particle.y > canvas.height) particle.y = 0
-
-        // Draw particle
-        ctx.save()
-        ctx.globalAlpha = particle.opacity
-        ctx.fillStyle = particleColor
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.restore()
-      })
-
-      requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas)
-    }
-  }, [minSize, maxSize, particleDensity, particleColor, speed])
+  const generatedId = useId()
 
   return (
-    <canvas
-      ref={canvasRef}
-      id={id}
-      className={cn("absolute inset-0 w-full h-full", className)}
-      style={{ background }}
-    />
+    <div className={cn("opacity-0", className)}>
+      {init && (
+        <Particles
+          id={id || generatedId}
+          className={cn("h-full w-full")}
+          particlesLoaded={particlesLoaded}
+          options={{
+            background: {
+              color: {
+                value: background || "#0d47a1",
+              },
+            },
+            fullScreen: {
+              enable: false,
+              zIndex: 1,
+            },
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: "push",
+                },
+                onHover: {
+                  enable: false,
+                  mode: "repulse",
+                },
+                resize: {
+                  enable: true,
+                  delay: 0.5,
+                },
+              },
+              modes: {
+                push: {
+                  quantity: 4,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: particleColor || "#ffffff",
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "out",
+                },
+                random: false,
+                speed: speed || 2,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  width: 400,
+                  height: 400,
+                },
+                value: particleDensity || 120,
+              },
+              opacity: {
+                value: {
+                  min: 0.1,
+                  max: 1,
+                },
+                animation: {
+                  enable: true,
+                  speed: speed || 4,
+                  startValue: "random",
+                },
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: {
+                  min: minSize || 1,
+                  max: maxSize || 3,
+                },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
+      )}
+    </div>
   )
 }

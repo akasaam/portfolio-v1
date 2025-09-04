@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { BackgroundLines } from "@/components/ui/background-lines"

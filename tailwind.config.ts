@@ -1,11 +1,12 @@
 import type { Config } from "tailwindcss"
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
@@ -19,7 +20,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"],
+        outfit: ["var(--font-outfit)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
