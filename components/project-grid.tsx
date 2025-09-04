@@ -39,8 +39,7 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
       } else {
         // Simulate API call with Unsplash images
         const mockProjects: Project[] = [
-        
-          {
+           {
             id: "1",
             title: "Karnika Events",
             description: "Event Planner In Kalkata.",
