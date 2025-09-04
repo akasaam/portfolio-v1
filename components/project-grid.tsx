@@ -31,20 +31,14 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Load projects from cache or API
+    // Load projects (override any stale cache to ensure latest data is visible)
     const loadProjects = () => {
-      const cachedProjects = localStorage.getItem("portfolio_projects")
-      if (cachedProjects) {
-        setProjects(JSON.parse(cachedProjects))
-      } else {
-        // Simulate API call with Unsplash images
-        const mockProjects: Project[] = [
-           {
+      const mockProjects: Project[] = [
+          {
             id: "1",
             title: "Karnika Events",
             description: "Event Planner In Kalkata.",
-            image:
-              "https://www.karnikaeventplanners.in/img/logoo.png",
+            image: "https://www.karnikaeventplanners.in/img/logoo.png",
             tech: ["Production"],
             liveUrl: "https://www.karnikaeventplanners.in/",
             githubUrl: "https://github.com/akasaam/",
@@ -64,7 +58,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "3",
             title: "Rang Raze Studio",
-            description: "Minimalist luxury meets your love story. Discover bespoke gowns, gold-kissed details, and effortless elegance—crafted for your moment",
+            description:
+              "Minimalist luxury meets your love story. Discover bespoke gowns, gold-kissed details, and effortless elegance—crafted for your moment",
             image:
               "https://cdn.prod.website-files.com/68791316f8c22867dfd50601/6879fe10d46fe9d1ffed28ff_327d705d-8afd-41ab-96ea-ad2586b80eb0.avif",
             tech: ["Under Development"],
@@ -75,9 +70,9 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "4",
             title: "Darjeeling soap",
-            description: "Award-winning natural skincare crafted from the finest ingredients of Darjeeling",
-            image:
-              "https://i.pinimg.com/736x/cf/31/d5/cf31d5991be8eeff8d764a6a960b527b.jpg",
+            description:
+              "Award-winning natural skincare crafted from the finest ingredients of Darjeeling",
+            image: "https://i.pinimg.com/736x/cf/31/d5/cf31d5991be8eeff8d764a6a960b527b.jpg",
             tech: ["Under Development"],
             liveUrl: "https://darjeelingsoap.vercel.app/",
             githubUrl: "https://github.com/akasaam/",
@@ -87,8 +82,7 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
             id: "5",
             title: "Sutra | Superspeciality",
             description: "Empowering families on their journey to holistic well-being.",
-            image:
-              "https://i.pinimg.com/736x/de/e5/fa/dee5faa86add336b8c291b75cc0a7e01.jpg",
+            image: "https://i.pinimg.com/736x/de/e5/fa/dee5faa86add336b8c291b75cc0a7e01.jpg",
             tech: ["Under Development"],
             liveUrl: "https://v0-sutra-care.vercel.app/",
             githubUrl: "https://github.com/akasaam/Sutra-Superspeciality-Therapy",
@@ -97,7 +91,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "6",
             title: "People and Pets",
-            description: "Your one-stop destination for pet grooming, veterinary services, and premium pet food.",
+            description:
+              "Your one-stop destination for pet grooming, veterinary services, and premium pet food.",
             image: "https://i.pinimg.com/736x/c8/e5/dc/c8e5dc07633bcb8408247a9b78998b24.jpg",
             tech: ["Production"],
             liveUrl: "https://peoplenpets.in",
@@ -107,7 +102,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "7",
             title: "A-Smiles Dental Clinic",
-            description: "A-Smiles Dental Clinic offers premium dental care with a self-care lounge experience.",
+            description:
+              "A-Smiles Dental Clinic offers premium dental care with a self-care lounge experience.",
             image: "https://i.pinimg.com/736x/df/5f/a7/df5fa76c46d2d77ee390df51d0266f81.jpg",
             tech: ["React", "Next.js", "Tailwind CSS", "V.0"],
             liveUrl: "https://v0.dev/chat/a-smiles-dental-website-Uu2BJXYvKW0",
@@ -117,7 +113,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "8",
             title: "King Queen Salon",
-            description: "Premium unisex salon in a luxurious setting where every client is treated like royalty.",
+            description:
+              "Premium unisex salon in a luxurious setting where every client is treated like royalty.",
             image:
               "https://cdn.dribbble.com/userupload/26123812/file/original-c34a69dc079e0dcad53963957bca37c2.jpg?resize=1024x768&vertical=center",
             tech: ["React", "Next.js", "Tailwind CSS", "V.0"],
@@ -128,7 +125,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "9",
             title: "Perself Mindcare",
-            description: "Holistic approaches to mental wellness. Healing begins with acceptance.",
+            description:
+              "Holistic approaches to mental wellness. Healing begins with acceptance.",
             image:
               "https://cdn.dribbble.com/userupload/17753158/file/original-6a2f902bfcc668c047f6b0d5ed9c498d.jpg?resize=1024x652&vertical=center",
             tech: ["React", "Next.js", "Tailwind CSS", "Loveable"],
@@ -139,7 +137,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "10",
             title: "Twelve 7 Salon Website",
-            description: "Professional salon website with booking system and service catalog",
+            description:
+              "Professional salon website with booking system and service catalog",
             image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1600&h=900&fit=crop",
             tech: ["Under Maintenance"],
             liveUrl: "https://twelve7salon.com",
@@ -149,7 +148,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "11",
             title: "Viral Alchemy 2.0",
-            description: "Digital marketing agency specializing in viral content creation and social media strategy",
+            description:
+              "Digital marketing agency specializing in viral content creation and social media strategy",
             image: "https://i.pinimg.com/736x/cc/bb/63/ccbb63d060fb1d34aca3a7f19e90ea19.jpg",
             tech: ["React", "Next.js", "Tailwind CSS", "V.0"],
             liveUrl: "https://viral-alchemy-2-0.vercel.app",
@@ -159,7 +159,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "12",
             title: "GeeksHub",
-            description: "Transform your future with our comprehensive computer training programs.",
+            description:
+              "Transform your future with our comprehensive computer training programs.",
             image: "https://i.pinimg.com/736x/6a/50/3f/6a503fc28d991c249b3cf8e88a023343.jpg",
             tech: ["React", "Next.js", "Tailwind CSS"],
             liveUrl: "https://v0-geeks-hub.vercel.app",
@@ -169,7 +170,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "13",
             title: "Viral Alchemy",
-            description: "Digital marketing agency specializing in viral content creation and social media strategy",
+            description:
+              "Digital marketing agency specializing in viral content creation and social media strategy",
             image: "https://i.pinimg.com/736x/34/53/8d/34538d9f40246bba3e5faa2c5d943f17.jpg",
             tech: ["React", "Next.js", "Tailwind CSS", "Shadcn UI"],
             liveUrl: "https://viral-alchemy.vercel.app/",
@@ -179,7 +181,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "14",
             title: "Password Manager",
-            description: "Keep your digital life secure, it's saves all data on your phone only",
+            description:
+              "Keep your digital life secure, it's saves all data on your phone only",
             image: "https://i.pinimg.com/736x/fd/29/2f/fd292f15e1bb578f5ed0c1381bb76cb8.jpg",
             tech: ["React Native", "TypeScript", "Rork AI"],
             liveUrl: "https://password-keeper.rork.app",
@@ -189,7 +192,8 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "15",
             title: "Todo List Application",
-            description: "Feature-rich task management app with local storage and categories",
+            description:
+              "Feature-rich task management app with local storage and categories",
             image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1600&h=900&fit=crop",
             tech: ["Tailwind CSS", "JavaScript"],
             liveUrl: "https://todo.raju.dev",
@@ -199,17 +203,17 @@ export default function ProjectGrid({ isHomePage = false }: ProjectGridProps) {
           {
             id: "16",
             title: "Woods Club",
-            description: "A e learning platform for students where they can learn coding and business",
+            description:
+              "A e learning platform for students where they can learn coding and business",
             image: "https://i.pinimg.com/736x/9e/0e/2a/9e0e2a8be395cbebe80fe4296dcb4a0e.jpg",
             tech: ["Tailwind CSS"],
             liveUrl: "https://woodsclub.netlify.app/",
             githubUrl: "https://github.com/akasaam/woods-club",
             category: "E-Learning Platform",
           },
-        ]
-        setProjects(mockProjects)
-        localStorage.setItem("portfolio_projects", JSON.stringify(mockProjects))
-      }
+      ]
+      setProjects(mockProjects)
+      localStorage.setItem("portfolio_projects", JSON.stringify(mockProjects))
     }
 
     loadProjects()
