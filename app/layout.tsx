@@ -15,7 +15,7 @@ const outfit = Outfit({
 export const metadata = {
   title: "RAJU HALDER - Web Developer Portfolio",
   description: "Creative Web Developer specializing in modern web applications and digital experiences",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
